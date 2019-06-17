@@ -4,6 +4,7 @@ from skimage import color, exposure, transform,io
 import numpy as np
 IMG_SIZE = 48
 import os
+import cv2
 
 def preprocess_img(img):
     # Histogram normalization in v channel
