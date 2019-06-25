@@ -2,9 +2,8 @@ from keras.models import load_model
 from keras.preprocessing import image
 from skimage import color, exposure, transform,io
 import numpy as np
-IMG_SIZE = 48
-import os
 import cv2
+IMG_SIZE = 48
 
 def preprocess_img(img):
     # Histogram normalization in v channel
@@ -27,6 +26,9 @@ def preprocess_img(img):
 
     return img
 
+def prep(img):
+    img=exposure.equalize_adapthist(img)
+    return img
 
 model = load_model("model.h5")
 new_image = image.load_img("7.png")
